@@ -15,9 +15,6 @@
 # production
 /build
 
-# Ignore public directory
-public/
-
 # misc
 .DS_Store
 *.pem
