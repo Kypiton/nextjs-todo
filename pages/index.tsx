@@ -85,7 +85,7 @@ export default function Home() {
       <hr className={'mt-40 max-[420px]:mt-28'}/>
       <div className={'flex items-center justify-around max-[1000px]:flex-wrap'}>
         <p className={'pt-6'}>{lengthTodo} item{lengthTodo === 1 ? '' : 's'}</p>
-        <p onClick={deleteCompletedTasks} className={'cursor-pointer hover:text-blue-600 pt-6'}>Delete tasks that have been completed</p>
+        <p onClick={deleteCompletedTasks} className={'cursor-pointer hover:text-blue-600 pt-6 text-center'}>Delete tasks that have been completed</p>
         <p onClick={deleteAllTasks} className={'cursor-pointer hover:text-blue-600 pt-6'}>Clear All</p>
       </div>
     </main>
