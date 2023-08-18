@@ -1,4 +1,4 @@
-import Todo from '@/components/Todo'
+import Todo from '../components/Todo'
 import { useState, useEffect } from 'react';
 import { Rubik } from 'next/font/google'
 import { ITodo } from '../types/todo';
@@ -63,13 +63,11 @@ export default function Home() {
       <form action="" className={`flex items-center justify-between mt-8 relative`} onSubmit={addTask}>
         <input 
           type="text"
-          title='Your ToDo must start with 5 letters!' 
-          className={'rounded-xl border-2 border-indigo-500/100 p-5 w-full max-[750px]:p-3 max-[750px]:text-sm'} 
+          className={'rounded-xl border-2 border-indigo-500/100 py-5 pl-5 pr-24 w-full max-[750px]:p-3 max-[750px]:py-3 max-[750px]:pl-3 max-[750px]:pr-16 max-[750px]:text-sm'} 
           placeholder="Add new list item"
           onChange={(e) => setNewTodo(e.target.value)}
           value={newTodo}
-          required
-          minLength={5} />
+          required />
         <button className={`py-3 px-6 bg-emerald-500 text-white rounded absolute top-2.5 right-2 max-[750px]:py-1.5 max-[750px]:px-3 max-[750px]:top-1.5`}>Add</button>
       </form>
       <Todo 
