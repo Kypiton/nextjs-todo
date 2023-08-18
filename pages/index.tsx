@@ -39,6 +39,10 @@ export default function Home() {
     }
   }
 
+  const deleteCompletedTasks = () => {
+    setChangeTodo(changeTodo.filter(todo => !todo.isCompleted ? addTask : null))
+  }
+
   const deleteAllTasks = () => {
     localStorage.removeItem('changeTodo');
     setChangeTodo([]);
@@ -63,7 +67,7 @@ export default function Home() {
       <form action="" className={`flex items-center justify-between mt-8 relative`} onSubmit={addTask}>
         <input 
           type="text"
-          className={'rounded-xl border-2 border-indigo-500/100 py-5 pl-5 pr-24 w-full max-[750px]:p-3 max-[750px]:py-3 max-[750px]:pl-3 max-[750px]:pr-16 max-[750px]:text-sm'} 
+          className={'rounded-xl outline-0 border-2 border-indigo-500/100 py-5 pl-5 pr-24 w-full max-[750px]:p-3 max-[750px]:py-3 max-[750px]:pl-3 max-[750px]:pr-16 max-[750px]:text-sm'} 
           placeholder="Add new list item"
           onChange={(e) => setNewTodo(e.target.value)}
           value={newTodo}
@@ -79,8 +83,9 @@ export default function Home() {
         <h2 className={'text-4xl text-indigo-500/100 text-center max-[750px]:text-xl'}>No to-do items found.</h2>
       }
       <hr className={'mt-40 max-[420px]:mt-28'}/>
-      <div className={'flex items-center justify-around'}>
+      <div className={'flex items-center justify-around max-[1000px]:flex-wrap'}>
         <p className={'pt-6'}>{lengthTodo} item{lengthTodo === 1 ? '' : 's'}</p>
+        <p onClick={deleteCompletedTasks} className={'cursor-pointer hover:text-blue-600 pt-6'}>Delete tasks that have been completed</p>
         <p onClick={deleteAllTasks} className={'cursor-pointer hover:text-blue-600 pt-6'}>Clear All</p>
       </div>
     </main>
